@@ -1,0 +1,16 @@
+{% extends 'fanta_soccer_app/base.html'%}
+{% block content%}
+
+<h2>LEAGUES</h2>
+<div class="container-fluid">
+    <div class="row">
+        <ul>
+            {% for league in leagues %}
+            <a href="{% url 'tournament:league_details' league.id %}"><li>{{league.league_name}} - {{league.type_of_tournament}}</li></a>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<a href="{% url 'tournament:start_tournament' %}">back to start</a>
+
+{% endblock content%}

@@ -1,0 +1,24 @@
+{% extends 'fanta_soccer_app/base.html'%}
+{% block content%}
+<body>
+<p>Squads's List</p>
+<ul>
+  {% for squad in squads %}
+  <li>
+    <a href="{% url 'fanta_soccer_app:squad' squad.id %}">
+      <p>{{ squad }}</p></a>
+      <p>{{ squad.manager }}</p>
+  </li>
+  {% empty %}
+
+  {% endfor %}
+</ul>
+{% if user.is_authenticated %}
+<p>
+  <a href="{% url 'fanta_soccer_app:new_squad' %}">Add a new Squad</a>
+</p>
+{% endif %}
+
+</body>
+
+{% endblock content%}

@@ -1,0 +1,17 @@
+{% extends 'fanta_soccer_app/base.html'%}
+{% block content%}
+
+{{ league }}
+<div class="container-fluid">
+    <div class="row">
+        <ul>
+            {% for squad in squads %}
+            <li>{{ squad }} </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="{% url 'tournament:tournament_list' %}">back</a>
+</div>
+
+
+{% endblock content%}

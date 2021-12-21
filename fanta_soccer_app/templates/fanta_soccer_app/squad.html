@@ -1,0 +1,22 @@
+{% extends 'fanta_soccer_app/base.html'%}
+{% block content%}
+<body>
+<p>Squad: {{ squad }}</p>
+<ul>
+  Manager: {{ squad.manager }}
+  {% for player in players %}
+  <li>{{ player.player_name }} - {{ player.position }}</li>
+  {% endfor %}
+</ul>
+<p>Leagues</p>
+{{ squad.tournament_in }}
+
+{% if squad.manager == user %}
+<p>
+  <a href="{% url 'fanta_soccer_app:add_player' squad.id %}">Add a Player to the Squad</a>
+</p>
+{% endif %}
+
+</body>
+
+{% endblock content%}

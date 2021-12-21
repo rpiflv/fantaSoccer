@@ -1,0 +1,32 @@
+{% extends 'fanta_soccer_app/base.html'%}
+{% block content%}
+<body>
+<p>Player's List</p>
+<div class="container-fluid">
+<div class="row row-cols-1 row-cols-md-4 g-4 mx-auto">
+        {% for available_player in available_players %}
+        <div class="card mb-2 mt-2 text-dark bg-light" style="max-width: 12rem">
+            <div class="card-body text-center">
+                <div class="card-header">
+                    <a href="{% url 'fanta_soccer_app:player_detail' available_player.id %}">{{ available_player.player_name}}</a>
+                </div>
+                    <div class="class-text">
+                    <p>{{ available_player.team_real}}</p>
+                    <p>{{ available_player.position }}</p>
+                    {% if available_player.squad == None %}
+                    <a class="btn btn-sm btn-secondary" href="{% url 'fanta_soccer_app:add_squad' available_player.id %}">
+                        add to squad</a>
+                    {% else %}
+                    <p>{{ available_player.squad }}</p>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+</div>
+
+</body>
+
+{% endblock content%}

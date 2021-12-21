@@ -1,0 +1,18 @@
+{% extends 'fanta_soccer_app/base.html'%}
+
+{% block content%}
+
+<div class="container">
+    <div><h1>FANTA SOCCER</h1></div>
+
+    <div><p>The new game to play as a manager</p></div>
+        <body-index>
+            <div class="background-one">
+            <div class="link-container">
+                <a class="home-link-one" href="{% url 'tournament:start_tournament' %}">ENTER A TOURNAMENT</a>
+            </div>
+            </div>
+        </body-index>
+</div>
+
+{% endblock content%}

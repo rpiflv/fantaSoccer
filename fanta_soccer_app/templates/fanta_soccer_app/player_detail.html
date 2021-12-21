@@ -1,0 +1,25 @@
+{% extends 'fanta_soccer_app/base.html'%}
+{% block content%}
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-sm-6 mx-auto mt-5">
+            <div class="card text-center" >
+                <img src="/static/images/default_player_pic.jpg"
+                     class="card-img-top">
+                <div class="card-body">
+                    <h3 class="card-title">{{ player_info.player_name }}</h3>
+                    <h4 class="card-text">{{ player_info.team_real }}</h4>
+                    <h5 class="card-text">{{ player_info.position }}</h5>
+                    {% if player_info.squad == None %}
+                    <a class="btn btn-primary" href="{% url 'fanta_soccer_app:add_squad' player_info.id %}">Add a squad</a>
+                    {% else %}
+                    <h4>{{ player_info.squad }}</h4>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content%}

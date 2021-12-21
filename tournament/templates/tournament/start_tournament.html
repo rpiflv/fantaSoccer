@@ -1,0 +1,22 @@
+{% extends 'fanta_soccer_app/base.html'%}
+{% load crispy_forms_tags %}
+{% block content%}
+
+<div>
+    <h1>START</h1>
+    <a href="{% url 'tournament:tournament_list' %}">View all Leagues</a>
+</div>
+    <form class="mx-auto col-sm-4 mt-4" action="" method="POST">
+    <div class="form-group">
+        {% csrf_token %}
+        {{ form|crispy }}
+    </div>
+    <button class="btn btn-secondary" name="submit">Create</button>
+    </form>
+
+<div>
+
+</div>
+
+
+{% endblock content%}

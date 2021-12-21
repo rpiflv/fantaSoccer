@@ -1,0 +1,19 @@
+{% extends 'fanta_soccer_app/base.html'%}
+{% block content%}
+<body>
+
+<p>Add a new player to the Squad:</p>
+
+<p><a href="{% url 'fanta_soccer_app:squad' squad.id %}">{{ squad }}</a></p>
+
+<form action="{% url 'fanta_soccer_app:add_player' squad.id %}" method="POST">
+    {% csrf_token %}
+
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button name="squad" type="submit" value="">Add player</button>
+</form>
+</body>
+
+{% endblock content%}

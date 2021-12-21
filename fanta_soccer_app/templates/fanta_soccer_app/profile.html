@@ -1,0 +1,21 @@
+{% extends 'fanta_soccer_app/base.html'%}
+{% block content%}
+<body>
+<p>Hello {{ user }}</p>
+<p>
+    Motto: {{ user.profile.motto }}
+</p>
+    <h3>Squads</h3>
+<p>
+    <ul>
+    {% for squad in squads_profile %}
+    <li>
+        <a href="{% url 'fanta_soccer_app:squad' squad.id %}">{{ squad }}</a>
+    </li>
+    {% endfor %}
+</ul>
+    <a href="{% url 'fanta_soccer_app:new_squad' %}">Add a new Squad</a>
+</p>
+</body>
+
+{% endblock content%}

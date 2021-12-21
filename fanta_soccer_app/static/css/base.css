@@ -1,0 +1,12 @@
+body {
+    grid: 3;
+    background: gray;
+}
+header a {
+    color: red;
+}
+
+h1 {
+    color: blue;
+}
+

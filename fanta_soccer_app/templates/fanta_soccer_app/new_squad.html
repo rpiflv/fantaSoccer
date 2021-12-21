@@ -1,0 +1,20 @@
+{% extends 'fanta_soccer_app/base.html'%}
+{% load crispy_forms_tags %}
+{% block content%}
+
+<div class="container-fluid">
+  <div class="row">
+
+  <form class="mx-auto col-sm-4 mt-4" action="" method="POST">
+    <p>Add a new Squad</p>
+    <div class="form-group">
+      {% csrf_token %}
+      {{ form|crispy }}
+    </div>
+      <button class="btn btn-secondary" name="submit">Add squad</button>
+  </form>
+  </div>
+</div>
+
+
+{% endblock content%}
